@@ -20,7 +20,6 @@ namespace Practico_2.Migrations
             modelBuilder.Entity("Curso", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descripcion")
@@ -43,8 +42,6 @@ namespace Practico_2.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EstatusId");
-
-                    b.HasIndex("ProfesorId");
 
                     b.ToTable("Curso");
                 });
@@ -150,7 +147,7 @@ namespace Practico_2.Migrations
 
                     b.HasOne("Profesor", "Profesor")
                         .WithMany("Cursos")
-                        .HasForeignKey("ProfesorId")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

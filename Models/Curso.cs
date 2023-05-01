@@ -7,7 +7,7 @@ public class Curso{
     public int EstatusId { get; set; }
     public virtual Estatus Estatus { get; set; }
     public int ProfesorId { get; set; }
-    public virtual Profesor Profesor {get;set;}
+    public virtual Profesor? Profesor {get;set;}
 
     public virtual List<CursosEstudiantes> CursosEstudiantes { get; set; }
 }

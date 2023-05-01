@@ -57,6 +57,9 @@ namespace Practico_2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,FechaDeAlta")] Estatus estatus)
         {
+            ModelState.Remove("Profesores");
+            ModelState.Remove("Cursos");
+            ModelState.Remove("Estudiantes");
             if (ModelState.IsValid)
             {
                 _context.Add(estatus);

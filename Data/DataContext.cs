@@ -23,6 +23,8 @@ namespace Practico_2.Data
             modelBuilder.Entity<CursosEstudiantes>().HasKey(p=> new {p.CursoId,p.EstudiantesId});
             modelBuilder.Entity<CursosEstudiantes>().HasOne<Curso>(p => p.Curso).WithMany(p=>p.CursosEstudiantes).HasForeignKey(p=>p.CursoId);
             modelBuilder.Entity<CursosEstudiantes>().HasOne<Estudiante>(p=>p.Estudiante).WithMany(p=>p.CursosEstudiantes).HasForeignKey(p=>p.EstudiantesId);
+            modelBuilder.Entity<Curso>().HasOne<Profesor>(p=>p.Profesor).WithMany(p=>p.Cursos).HasForeignKey(p=>p.ProfesorId);
+
         }
     }
 }
